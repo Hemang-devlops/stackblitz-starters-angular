@@ -157,6 +157,7 @@ body {
 }
 
 .container {
+  margin-top: 0px;
   margin-left: 5%;
   margin-right: 5%;
 }

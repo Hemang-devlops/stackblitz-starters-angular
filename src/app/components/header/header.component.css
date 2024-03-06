@@ -13,10 +13,20 @@
   position: relative;
 }
   .nav {
-    margin-top: 20px;
-    /* width: 100%; */
+    margin-top: -10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: -webkit-fill-available;
     display: flex;
+    border-bottom: 1px solid blueviolet;
+    -webkit-backdrop-filter: blur(3.5px);
+    backdrop-filter: blur(3.5px);
+    position: fixed;
     justify-content: space-between;
+    left:0;
   }
   
   .nav h1 {
@@ -43,7 +53,7 @@
   }
   
   .nav .nav-search {
-    margin-top: 0.5em;
+    margin-top: 10px;
     flex: 1;
     display: flex;
     margin-left: 5%;
