@@ -1,0 +1,56 @@
+.btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #666;
+    background: #e8e8e8;
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn:hover {
+    transform: scale(1.03);
+  }
+  .btn span {
+    font-size: 16px;
+  }
+  .facebook {
+    background: #3a589e;
+  }
+  .twitter {
+    background: #429cd6;
+  }
+  .google {
+    background: #d34836;
+  }
+  .fab {
+    padding: 10px;
+  }
+  
+  .social-signup h2 {
+    text-align: center;
+  }
+  .social-signup {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: -30px;
+  }
+  
+  .toggleLogin {
+    margin-bottom: 30px;
+  }
+  
+  .toggleLogin span {
+    color: blueviolet;
+  }
+  .toggleLogin span:hover {
+    color: rgb(73, 1, 150);
+    cursor: pointer;
+  }
+  
