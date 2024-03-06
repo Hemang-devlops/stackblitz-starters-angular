@@ -1,16 +1,25 @@
 <nav class="nav">
-  <span class="logo">
+  <header class="logo" (click)="router.navigate(['/'])">
     <h1>E-COMM</h1>
     <i class="fa-solid fa-cart-shopping"></i>
-  </span>
-  <div class="nav-search">
+  </header>
+  <div *ngIf="menuType ==='default'" class="nav-search">
     <input type="text" placeholder="Search for Products" />
     <button>Search</button>
   </div>
-  <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="seller-auth">Seller</a></li>
-    <li><a routerLink="user-login">Login</a></li>
-    <li><a href="#">Cart</a></li>
-  </ul>
+  <div [ngSwitch]="menuType">
+    <ul *ngSwitchCase="'default'">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="seller-auth">Seller</a></li>
+      <li><a routerLink="user-login">Login</a></li>
+      <li><a href="#">Cart</a></li>
+    </ul>
+    <ul *ngSwitchCase="'seller'">
+      <li><a routerLink="/">Product List</a></li>
+      <li><a routerLink="/">Add Product</a></li>
+      <li><a routerLink="seller-auth">Seller</a></li>
+      <li><a routerLink="seller-logout" (click)="logoutSeller()">Log out</a></li>
+      <li><a href="#">Seller Name</a></li>
+    </ul>
+</div>
 </nav>

@@ -1,7 +1,8 @@
 .logo {
     padding-top: 5px;
     display: flex;
-    color: blueviolet
+    color: blueviolet;
+    cursor:pointer;
   }
 .logo h1{
   width: max-content;
