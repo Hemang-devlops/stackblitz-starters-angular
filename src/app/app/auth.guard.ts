@@ -4,6 +4,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
+  UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SellerService } from '../services/seller/seller.service';
@@ -12,19 +13,13 @@ import { SellerService } from '../services/seller/seller.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private sellerService: SellerService, private router: Router) {}
+  constructor(private sellerService: SellerService) {}
 
-  canActivate(): boolean {
+  canActivate(route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (localStorage.getItem('seller')) {
       return true;
-    } else if (this.sellerService.isSellerLoggedIn) {
-      console.log('if');
-      this.router.navigate(['/seller/home']);
-      return true;
-    } else {
-      console.log('else');
-      this.router.navigate(['/seller/auth']);
-      return false;
     }
+    return this.sellerService.isSellerLoggedIn;
   }
 }

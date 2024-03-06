@@ -19,7 +19,7 @@ export class SellerComponent implements OnInit {
     this.seller.reloadSeller().subscribe((isLoggedIn) => {
       this.isSellerLoggedIn.next(isLoggedIn);
       if (isLoggedIn) {
-        this.router.navigate(['seller/home']);
+        this.router.navigate(['seller-home']);
       }
     });
   }

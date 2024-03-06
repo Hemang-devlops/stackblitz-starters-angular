@@ -18,7 +18,7 @@ export class SellerService {
       .subscribe((result) => {
         if (result) {
           localStorage.setItem('seller', JSON.stringify(result.body));
-          this.router.navigate(['seller/home']);
+          this.router.navigate(['seller-home']);
         }
       });
   }
@@ -38,7 +38,7 @@ export class SellerService {
         if (result && result.body && result.body.length > 0) {
           this.isLoginError.emit(false);
           localStorage.setItem('seller', JSON.stringify(result.body));
-          this.router.navigate(['seller/home']);
+          this.router.navigate(['seller-home']);
         } else {
           console.log('user login failed.');
           this.isLoginError.emit(true);
