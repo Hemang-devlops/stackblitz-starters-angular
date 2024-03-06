@@ -1,7 +1,20 @@
 .logo {
     padding-top: 5px;
+    display: flex;
+    color: blueviolet
   }
+.logo h1{
+  width: max-content;
+}
+
+.logo i{
+  font-size: 2em;
+  bottom: -7px;
+  position: relative;
+}
   .nav {
+    margin-top: 20px;
+    /* width: 100%; */
     display: flex;
     justify-content: space-between;
   }

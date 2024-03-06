@@ -4,7 +4,8 @@ import 'zone.js';
 import { AppModule } from './app/app/app.module';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule)
+.catch(err => console.error(err));
 
 // @Component({
 //   selector: 'app-root',

@@ -54,3 +54,6 @@
     cursor: pointer;
   }
   
+  .password-instructions{
+    font-size: 12px;
+  }
