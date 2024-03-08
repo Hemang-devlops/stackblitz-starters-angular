@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../app/data-type';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from '../../card/card.component';
 
 @Component({
   selector: 'app-sellerhome',
   standalone: true,
-  imports: [ CardComponent, CommonModule],
+  imports: [ CommonModule],
   templateUrl: './sellerhome.component.html',
   styleUrl: './sellerhome.component.css'
 })
