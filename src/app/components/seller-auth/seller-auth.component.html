@@ -1,5 +1,5 @@
 <div class="seller-auth">
-    <div class="signup" *ngIf="!showLogin">
+    <div class="signup form_container" *ngIf="!showLogin">
         <form #sellerSignUp="ngForm" (ngSubmit)="signUp(sellerSignUp.value)" class="form">
             <div class="form__title">Seller Sign Up</div>
             <div class="form__item">
@@ -39,8 +39,8 @@
                 </p>
             </div>
         </form>
+        <h3 class="social_option">or <br> Sign up with</h3>
         <div class="social-signup">
-            <h3 class="form__title">or Sign up with:</h3>
             <button class="btn facebook" data-provider="facebook">
                 <i class="fab fa-facebook-f"></i><span>Facebook</span>
             </button>
@@ -52,7 +52,7 @@
             </button>
         </div>
     </div>
-    <div class="login" *ngIf="showLogin">
+    <div class="login form_container" *ngIf="showLogin">
         <form #sellerLogIn="ngForm" (ngSubmit)="logIn(sellerLogIn.value)" class="form">
             <div class="form__title">Seller Log In</div>
             <div class="form__item">
@@ -74,8 +74,8 @@
                 </p>
             </div>
         </form>
+        <h3 class="social_option">or<br> Log In with</h3>
         <div class="social-signup">
-            <h3 class="form__title">or Log In with:</h3>
             <button class="btn facebook" data-provider="facebook">
                 <i class="fab fa-facebook-f"></i><span>Facebook</span>
             </button>

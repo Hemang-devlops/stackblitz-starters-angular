@@ -1,6 +1,14 @@
 .seller-auth{
   padding-top: 50px;
 }
+
+.social_option{
+  text-align: center;
+  padding: 0 20px 20px 20px;
+  color:blueviolet;
+  font-size: 26px;
+  margin-top: 0;
+}
 .btn {
     display: flex;
     align-items: center;

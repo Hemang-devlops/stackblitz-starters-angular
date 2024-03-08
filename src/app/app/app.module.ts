@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 // import { SellerhomeComponent } from '../components/seller/sellerhome/sellerhome.component';
 import { RouterModule } from '@angular/router';
 import { SellerAuthComponent } from '../components/seller-auth/seller-auth.component';
+import { SellerAddProductComponent } from '../components/seller-auth/seller-add-product/seller-add-product.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   imports: [
@@ -25,6 +27,7 @@ import { SellerAuthComponent } from '../components/seller-auth/seller-auth.compo
   declarations: [
     AppComponent,
     SellerAuthComponent,
+    SellerAddProductComponent,
     HeaderComponent,
     HomeComponent,
     // SellerComponent,
@@ -33,5 +36,8 @@ import { SellerAuthComponent } from '../components/seller-auth/seller-auth.compo
     FooterComponent,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    provideAnimationsAsync()
+  ],
 })
 export class AppModule {}

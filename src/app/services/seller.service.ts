@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LogIn, SignUp } from '../../app/data-type';
+import { LogIn, SignUp } from '../app/data-type';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 

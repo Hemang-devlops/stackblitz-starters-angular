@@ -9,4 +9,11 @@ export interface SignUp {
     email: string;
     password: string;
   }
-  
+
+export interface Product{
+  title: string;
+  category: string;
+  price: number;
+  image: string;
+  description: string;
+}

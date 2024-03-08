@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LogIn, SignUp } from '../../app/data-type';
-import { SellerService } from '../../services/seller/seller.service';
+import { SellerService } from '../../services/seller.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
@@ -92,6 +92,7 @@ export class SellerAuthComponent {
   signUp(data : SignUp){
     return this.validateSignup(data) ? 
     this.seller.sellerSignUp(data) : false;
+    setTimeout(() => this.formError = "", 3000);
   }
 
   logIn(data: LogIn){
@@ -113,6 +114,7 @@ export class SellerAuthComponent {
         this.formError = 'Email or password is not correct.';
       }
     });
+    setTimeout(() => this.formError = "", 3000);
   }
 
 }

@@ -9,17 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   constructor(public router: Router){}
-  menuType: String = 'default';
+  menuType: string = 'default';
+  sellerName: string = '';
 
   ngOnInit(): void {
     this.router.events.subscribe((value : any) => {
       if (value.url){
         if(localStorage.getItem("seller") && value?.url?.includes('seller')) {
           this.menuType = 'seller';
-          console.log('in seller',this.menuType);
+          if (localStorage.getItem("seller")){
+            let sellerStore = localStorage.getItem("seller");
+            let sellerData = sellerStore && JSON.parse(sellerStore)[0];
+            this.sellerName = sellerData.name;
+          }
         }else{
           this.menuType = 'default';
-          console.log('out seller',this.menuType);
         }
       }
     })
