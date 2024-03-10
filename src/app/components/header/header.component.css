@@ -1,82 +1,244 @@
 .logo {
-    padding-top: 10px;
+    padding: 10px 10px;
     display: flex;
     color: blueviolet;
-    cursor:pointer;
+    margin-left: 20px;
+    cursor: pointer;
   }
-.logo h1{
-  width: max-content;
-}
+  
+  .logo h1 {
+    width: max-content;
+  }
+  
+  .logo i {
+    font-size: 2em;
+    bottom: -5px;
+    position: relative;
+  }
+  
+  .menu{
+    flex: 1;
+    display: flex;
+  }
+  
+  .nav {
+    width: 100%;
+    height: 60px;
+    transform: translateY(0);
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-start; */
+    border-bottom: 1px solid rgb(138, 43, 226);
+    -webkit-backdrop-filter: blur(3.5px);
+    backdrop-filter: blur(3.5px);
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    justify-content:space-between;
+    transition: all ease 0.3s;
+  }
+  
+  .nav h1{
+    color: blueviolet;
+    margin: 0;
+    font-size: 2em;
+  }
+  
+  .nav ul{
+    display: inline-flex; /* Change to flex for better wrapping on mobile */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav li{
+    padding: 10px; /* Adjust padding for better spacing on mobile */
+  }
+  
+  .nav li a{
+    text-decoration: none;
+    color: blueviolet;
+  }
+  
+  .nav .nav-search {
+    align-content: center;
+    flex-wrap: wrap;
+    min-width: 200px;
+    flex: 1;
+    justify-self: flex-end;
+    max-width: 440px;
+    display: flex;
+    margin: 0 auto; /* Center search bar on mobile */
+    /* Remove margin-left/right for full width on mobile */
+  }
+  
+  .nav .nav-search input {
+    flex: 1;
+    color: blueviolet;
+    height: 30px;
+    border: 1px solid blueviolet;
+    border-right: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .nav .nav-search button {
+    background-color: blueviolet;
+    height: 34px;
+    color: white;
+    /* border: 1px solid black; */
+    border-left: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .nav li {
+      /* Adjust font size or line-height for better readability on mobile */
+      font-size: 0.9em; /* Example adjustment */
+    }
+  
+    .nav .menu{
+      display: none;
+    }
+  
+    .nav .nav-search input {
+      /* Adjust font size for better input field readability */
+      font-size: 0.9em; /* Example adjustment */
+    }
+  }
+  
+  /* This block styles the menu items */
+  .menuItems {
+    list-style-type: none;
+    display: none;
+    align-items: center;
+  }
+  
+  /* This media query likely shows the menu on medium screens and larger */
+  @media only screen and (min-width: 768px) {
+    .menuItems {
+      display: flex;
+    }
+  }
+  
+  /* Styles for each menu item */
+  .menuItem {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* Styles for the search icon menu item */
+  .menuItem.searchIcon {
+    margin-right: 0;
+  }
+  
+  /* Styles for SVG icons within menu items */
+  .menuItem svg {
+    font-size: 18px;
+  }
+  
+  /* Hover effect for menu items */
+  .menuItem:hover {
+    color: #fff;
+    background: var(--gradient);
+    height: 40px;
+    padding: 15px;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  .toggle{
+    display: none;
+    margin-right: 20px;
+  }
 
-.logo i{
-  font-size: 2em;
-  bottom: -5px;
-  position: relative;
-}
-.nav {
-  /* margin-top: -10px; */
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  width: -webkit-fill-available;
-  display: flex;
-  border-bottom: 1px solid blueviolet;
+  @media (max-width: 768px) {
+    .toggle {
+      display: block;
+      cursor: pointer;
+    }
+    
+  .mobileMenu{
+    display: block;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  }
+
+.mobileMenu{
+    margin-top: 60px;
+    color: white;
+    width: 100%;
+  display: block;
+  position: absolute;
   -webkit-backdrop-filter: blur(3.5px);
   backdrop-filter: blur(3.5px);
-  position: fixed;
-  justify-content: space-between;
-  left:0;
+  right: 0;
+  height: max-content;
+  /* width: 70vw; */
+  /* background-color: rgb(255, 255, 255); */
 }
+
+.mobileMenu ul{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px;
+    list-style: none;
+    padding: 0;
+  }
   
-.nav h1 {
-  color: blueviolet;
-  margin: 0;
-  font-size: 2em;
-}
-
-.nav ul {
-  display: inline-flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav li {
-  padding-left: 15px;
-  padding-top: 15px;
-}
-
-.nav li a {
-  text-decoration: none;
-  color: blueviolet;
-}
-
-.nav .nav-search {
-  margin-top: 10px;
-  flex: 1;
-  display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.nav .nav-search input {
-  flex: 1;
-  color: blueviolet;
-  height: 30px;
-  border: 1px solid blueviolet;
-  border-right: 0px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.nav .nav-search button {
-  background-color: blueviolet;
-  height: 34px;
-  color: white;
-  /* border: 1px solid black; */
-  border-left: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+  .mobileMenu li{
+    padding: 10px; /* Adjust padding for better spacing on mobile */
+  }
+  .mobileMenu li a:hover{
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 5px;
+    color:#fff;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+  }
+  
+  .mobileMenu li a{
+    text-decoration: none;
+    color: blueviolet;
+  }
+  
+  .mobileMenu .nav-search {
+    align-content: center;
+    flex-wrap: wrap;
+    min-width: 200px;
+    max-width: 440px;
+    display: flex;
+    margin: 10px auto; /* Center search bar on mobile */
+    /* Remove margin-left/right for full width on mobile */
+  }
+  
+  .mobileMenu .nav-search input {
+    flex: 1;
+    color: blueviolet;
+    height: 30px;
+    border: 1px solid blueviolet;
+    border-right: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .mobileMenu .nav-search button {
+    background-color: blueviolet;
+    height: 34px;
+    color: white;
+    /* border: 1px solid black; */
+    border-left: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }

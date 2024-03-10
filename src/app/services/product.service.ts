@@ -13,7 +13,19 @@ export class ProductService {
     return this.http.post("http://localhost:3000/products", data);
   }
 
-  getProducts(query: string){
-    return this.http.get<Product[]>(`http://localhost:3000/products/${query}`);
+  getProducts(){
+    return this.http.get<Product[]>(`http://localhost:3000/products/`);
+  }
+
+  getProduct(id: string){
+    return this.http.get<Product>(`http://localhost:3000/products/${id}`);
+  }
+
+  removeProduct(id: number){
+    return this.http.delete(`http://localhost:3000/products/${id}`);
+  }
+
+  updateProduct(id: string, data: Product){
+    return this.http.put(`http://localhost:3000/products/${id}`, data);
   }
 }

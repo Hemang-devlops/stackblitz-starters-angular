@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import {faBars, faXmark} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   constructor(public router: Router){}
+  screenWidth: number = 0;
   menuType: string = 'default';
   sellerName: string = '';
+  bar = faBars;
+  show=false;
+  cross = faXmark;
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
     this.router.events.subscribe((value : any) => {
       if (value.url){
         if(localStorage.getItem("seller") && value?.url?.includes('seller')) {
@@ -27,6 +33,18 @@ export class HeaderComponent implements OnInit {
         }
       }
     })
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event){
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth > 760){
+      this.show = false;
+    }
+  }
+
+  toggleMobileMenu() {
+    this.show=!this.show;
   }
 
   logoutSeller(): void{

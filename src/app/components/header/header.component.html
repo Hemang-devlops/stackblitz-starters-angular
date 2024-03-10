@@ -1,24 +1,44 @@
-<nav class="nav">
+<nav class="nav {{show}}">
   <header class="logo" (click)="router.navigate(['/'])">
     <h1>E-COMM</h1>
     <i class="fa-solid fa-cart-shopping"></i>
   </header>
+  <div [ngSwitch]="menuType" class="menu">
+    <div *ngIf="menuType ==='default'" class="nav-search">
+      <input type="text" placeholder="Search for Products" />
+      <button>Search</button>
+    </div>
+    <ul *ngSwitchCase="'default'" className="menuItems">
+      <li className="menuItem"><a routerLink="/">Home</a></li>
+      <li className="menuItem"><a routerLink="seller-auth">Seller</a></li>
+      <li className="menuItem"><a routerLink="user-login">Login</a></li>
+      <li className="menuItem"><a href="#">Cart</a></li>
+    </ul>
+    <ul *ngSwitchCase="'seller'" className="menuItems">
+      <li className="menuItem"><a routerLink="seller-add-product">Add Product</a></li>
+      <li className="menuItem"><a routerLink="seller-auth">Seller</a></li>
+      <li className="menuItem"><a routerLink="seller-logout" (click)="logoutSeller()">Log out</a></li>
+      <li className="menuItem"><a>{{sellerName | titlecase }}</a></li>
+    </ul>
+  </div>
+  <fa-icon *ngIf="!show" class="fa-xl toggle" [icon]="this.bar" (click)="toggleMobileMenu()"></fa-icon>
+  <fa-icon *ngIf="show" class="fa-xl toggle" [icon]="this.cross" (click)="toggleMobileMenu()"></fa-icon>
+</nav>
+<div *ngIf="show" [ngSwitch]="menuType" class="mobileMenu">
   <div *ngIf="menuType ==='default'" class="nav-search">
     <input type="text" placeholder="Search for Products" />
     <button>Search</button>
   </div>
-  <div [ngSwitch]="menuType">
-    <ul *ngSwitchCase="'default'">
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="seller-auth">Seller</a></li>
-      <li><a routerLink="user-login">Login</a></li>
-      <li><a href="#">Cart</a></li>
-    </ul>
-    <ul *ngSwitchCase="'seller'">
-      <li><a routerLink="seller-add-product">Add Product</a></li>
-      <li><a routerLink="seller-auth">Seller</a></li>
-      <li><a routerLink="seller-logout" (click)="logoutSeller()">Log out</a></li>
-      <li><a>{{sellerName | titlecase }}</a></li>
-    </ul>
+  <ul *ngSwitchCase="'default'" className="menuItems">
+    <li className="menuItem"><a routerLink="/">Home</a></li>
+    <li className="menuItem"><a routerLink="seller-auth">Seller</a></li>
+    <li className="menuItem"><a routerLink="user-login">Login</a></li>
+    <li className="menuItem"><a href="#">Cart</a></li>
+  </ul>
+  <ul *ngSwitchCase="'seller'" className="menuItems">
+    <li className="menuItem"><a routerLink="seller-add-product">Add Product</a></li>
+    <li className="menuItem"><a routerLink="seller-auth">Seller</a></li>
+    <li className="menuItem"><a routerLink="seller-logout" (click)="logoutSeller()">Log out</a></li>
+    <li className="menuItem"><a>{{sellerName | titlecase }}</a></li>
+  </ul>
 </div>
-</nav>

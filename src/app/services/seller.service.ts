@@ -24,7 +24,6 @@ export class SellerService {
   }
 
   reloadSeller(): Observable<boolean> {
-    console.log('in reloadSeller');
     return of(!!localStorage.getItem('seller'));
   }
 

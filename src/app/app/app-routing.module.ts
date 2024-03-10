@@ -7,13 +7,19 @@ import { LoginComponent } from '../components/login/login.component';
 import { SellerAuthComponent } from '../components/seller-auth/seller-auth.component';
 import { SellerhomeComponent } from '../components/seller-auth/sellerhome/sellerhome.component';
 import { SellerAddProductComponent } from '../components/seller-auth/seller-add-product/seller-add-product.component';
+import { SellerEditProductComponent } from '../components/seller-auth/seller-edit-product/seller-edit-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'seller-auth', component: SellerAuthComponent},
-  { 
-    path: 'seller-add-product', 
+  { path: 'seller-auth', component: SellerAuthComponent },
+  {
+    path: 'seller-add-product',
     component: SellerAddProductComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'seller-edit-product/:id',
+    component: SellerEditProductComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -21,7 +27,7 @@ const routes: Routes = [
     component: SellerhomeComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'user-login', component: LoginComponent},
+  { path: 'user-login', component: LoginComponent },
   { path: '**', component: PagenotfoundComponent },
 ];
 
@@ -29,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

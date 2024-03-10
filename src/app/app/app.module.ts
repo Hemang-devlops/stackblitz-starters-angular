@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagenotfoundComponent } from '../components/pagenotfound/pagenotfound.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { SellerhomeComponent } from '../components/seller/sellerhome/sellerhome.component';
 import { RouterModule } from '@angular/router';
 import { SellerAuthComponent } from '../components/seller-auth/seller-auth.component';
 import { SellerAddProductComponent } from '../components/seller-auth/seller-add-product/seller-add-product.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SellerEditProductComponent } from '../components/seller-auth/seller-edit-product/seller-edit-product.component';
+import { SellerhomeComponent } from '../components/seller-auth/sellerhome/sellerhome.component';
 
 @NgModule({
   imports: [
@@ -22,12 +24,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule, 
     ReactiveFormsModule, 
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule, FontAwesomeModule
   ],
   declarations: [
     AppComponent,
     SellerAuthComponent,
     SellerAddProductComponent,
+    SellerEditProductComponent,
+    SellerhomeComponent,
     HeaderComponent,
     HomeComponent,
     // SellerComponent,

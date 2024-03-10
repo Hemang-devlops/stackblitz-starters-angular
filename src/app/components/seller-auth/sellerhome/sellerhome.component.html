@@ -1,49 +1,72 @@
 <div class="product-list">
     <h1 class="page-title">All Product List</h1>
-    <!-- <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Image</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of productList">
-                <td>{{item.title}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.category}}</td>
-                <td>{{item.image}}</td>
-                <td>{{item.description}}</td>
-            </tr>
-        </tbody>
-    </table> -->
-    <div class="tbl-header">
+    <span class="form__success">{{this.deleteMsg}}</span>
+    <div *ngIf="productList" class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
             <tr>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th>Image</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
           </thead>
         </table>
       </div>
-      <div class="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-            <tr *ngFor="let item of productList">
-                <td>{{item.title}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.category}}</td>
-                <td>{{item.image}}</td>
-                <td>{{item.description}}</td>
+    <div *ngIf="productList" class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+        <tr *ngFor="let item of productList">
+            <td><img src="{{item.image}}" alt=""></td>
+            <td>{{item.title}}</td>
+            <td>${{item.price}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <fa-icon class="dlt fa-xl" [icon]="this.deleteIcon" (click)="removeProduct(item.id)"></fa-icon>
+                <a routerLink="/seller-edit-product/{{item.id}}">
+                  <fa-icon class="edit fa-xl" [icon]="this.editIcon"></fa-icon>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    <div *ngIf="!productList" class="tableWrapper">
+        <table class="table">
+          <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Action</th>
             </tr>
-        </tbody>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="loading">
+                <div class="bar"></div>
+              </td>
+              <td class="loading">
+                <div class="bar"></div>
+              </td>
+              <td class="loading">
+                <div class="bar"></div>
+              </td>
+              <td class="loading">
+                <div class="bar"></div>
+              </td>
+              <td class="loading">
+                <div class="bar"></div>
+              </td>
+            <td><button class="dlt btn"><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          </tbody>
         </table>
       </div>
+    
 </div>
