@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit{
     this.accesProduct();
   }
 
-  backgrounds = ['https://www.thetrendspotter.net/wp-content/uploads/2017/01/Best-Clothing-Stores-men.jpg', 'https://www.telegraph.co.uk/content/dam/fashion/2022/10/25/TELEMMGLPICT000313960470_trans_NvBQzQNjv4Bq7Cadr0IoOOfMS5GpRLWfGbVvz_IXZinEqtDTKahtjvc.jpeg', 'https://www.thestatesman.com/wp-content/uploads/2017/12/accessories.jpg'];
+  backgrounds = ['https://studybreaks.com/wp-content/uploads/2018/02/paris-mens-fashion-week-street-style-03.jpg', 'https://www.telegraph.co.uk/content/dam/fashion/2022/10/25/TELEMMGLPICT000313960470_trans_NvBQzQNjv4Bq7Cadr0IoOOfMS5GpRLWfGbVvz_IXZinEqtDTKahtjvc.jpeg', 'https://www.thestatesman.com/wp-content/uploads/2017/12/accessories.jpg'];
 
 
   setBackground() {
