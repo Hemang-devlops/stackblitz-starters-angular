@@ -18,3 +18,9 @@ export interface Product{
   image: string;
   description: string;
 }
+
+export interface ImageObject {
+  src: string;
+  title: string; // Add a title property
+  subtitle: string; // Add a subtitle property
+}

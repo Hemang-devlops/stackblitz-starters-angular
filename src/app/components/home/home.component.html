@@ -1,1 +1,114 @@
-<p>Home works!</p>
+<div class="home-container">
+    <div class="parent">
+        <img class="general val1" src="{{backgrounds[0]}}" />
+        <a href="#men"  class="men btn">Show Men's Fashion</a>
+        <img class="general val2" src="{{backgrounds[1]}}" />
+        <a href="#women"  class="women btn">Show Women's Fashion</a>
+        <img class="general val3" src="{{backgrounds[2]}}" />
+        <a href="#acces" class="acces btn">Show Accessories</a>
+    </div>
+    <div class="product-list-wrapper">
+        <div class="product-header">
+            <h1>Trendy Products</h1>
+            <a href="">View All</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let product of productList">
+                <div class="product-icon">
+                    <img src="{{product.image}}" alt="">
+                </div>
+                <div class="product-details">
+                    <p class="name-head">{{product.title}}</p>
+                    <div class="product-price">
+                        Price: ${{product.price}}
+                    </div>
+                    <div class="product-category">
+                        Category: {{product.category}}
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <a href="">View Details</a>
+                    <a href="">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-wrapper" id="men">
+        <div class="product-header">
+            <h1>Men's Fashion</h1>
+            <a href="">View All</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let product of menProductList">
+                <div class="product-icon">
+                    <img src="{{product.image}}" alt="">
+                </div>
+                <div class="product-details">
+                    <p class="name-head">{{product.title}}</p>
+                    <div class="product-price">
+                        Price: ${{product.price}}
+                    </div>
+                    <div class="product-category">
+                        Category: {{product.category}}
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <a href="">View Details</a>
+                    <a href="">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-wrapper" id="women">
+        <div class="product-header">
+            <h1>Women's Fashion</h1>
+            <a href="">View All</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let product of womenProductList">
+                <div class="product-icon">
+                    <img src="{{product.image}}" alt="">
+                </div>
+                <div class="product-details">
+                    <p class="name-head">{{product.title}}</p>
+                    <div class="product-price">
+                        Price: ${{product.price}}
+                    </div>
+                    <div class="product-category">
+                        Category: {{product.category}}
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <a href="">View Details</a>
+                    <a href="">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-wrapper" id="acces">
+        <div class="product-header">
+            <h1>Fashion Accessories</h1>
+            <a href="">View All</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let product of accesList">
+                <div class="product-icon">
+                    <img src="{{product.image}}" alt="">
+                </div>
+                <div class="product-details">
+                    <p class="name-head">{{product.title}}</p>
+                    <div class="product-price">
+                        Price: ${{product.price}}
+                    </div>
+                    <div class="product-category">
+                        Category: {{product.category}}
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <a href="">View Details</a>
+                    <a href="">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
