@@ -1,0 +1,47 @@
+/* Product Details Container */
+.product-details {
+    display: flex; /* Arrange image and details side-by-side */
+    margin: 20px 0; /* Add some margin for spacing */
+    border: 1px solid #ddd; /* Optional border for styling */
+    padding: 10px; /* Add some padding within the container */
+  }
+  
+  /* Product Image */
+  .product-image {
+    flex: 0 0 200px; /* Set a fixed width for the image */
+    margin-right: 20px; /* Add margin between image and details */
+  }
+  
+  .product-image img {
+    width: 100%; /* Ensure image fills the available space */
+    object-fit: cover; /* Crop or contain image to fit within container */
+  }
+  
+  /* Product Details Section */
+  .product-detail {
+    flex: 1; /* Allow details to occupy remaining space */
+  }
+  
+  /* Product Name */
+  .product-name {
+    font-weight: bold;
+    margin-bottom: 5px; /* Add spacing after the name */
+  }
+  
+  /* Product Price */
+  .product-price {
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Product Category */
+  .product-category {
+    font-style: italic;
+    margin-bottom: 5px;
+  }
+  
+  /* Product Description */
+  .product-description {
+    text-align: justify; /* Justify the text for better readability */
+  }
+  

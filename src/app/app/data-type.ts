@@ -15,7 +15,12 @@ export interface Product{
   title: string;
   category: string;
   price: number;
-  image: string;
+  discountPercentage: number,
+  rating: number,
+  stock: number,
+  brand: string,
+  thumbnail: string,
+  images: string[],
   description: string;
 }
 

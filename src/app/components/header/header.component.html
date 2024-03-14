@@ -1,12 +1,15 @@
-<nav class="nav {{show}}">
+<nav class="nav {{mobileNav}}" [ngClass]="{ 'hide': showNav === 'hide' }">
   <header class="logo" (click)="router.navigate(['/'])">
     <h1>E-COMM</h1>
     <i class="fa-solid fa-cart-shopping"></i>
   </header>
   <div [ngSwitch]="menuType" class="menu">
     <div *ngIf="menuType ==='default'" class="nav-search">
-      <input type="text" placeholder="Search for Products" />
+      <input type="text" placeholder="Search for Products" (keyup)="searchProducts($event)" />
       <button>Search</button>
+      <ul class="search-results" *ngFor="let product of searchProductData">
+        <li class="search-result">{{product.title}}</li>
+      </ul>
     </div>
     <ul *ngSwitchCase="'default'" className="menuItems">
       <li className="menuItem"><a routerLink="/">Home</a></li>
@@ -21,10 +24,10 @@
       <li className="menuItem"><a>{{sellerName | titlecase }}</a></li>
     </ul>
   </div>
-  <fa-icon *ngIf="!show" class="fa-xl toggle" [icon]="this.bar" (click)="toggleMobileMenu()"></fa-icon>
-  <fa-icon *ngIf="show" class="fa-xl toggle" [icon]="this.cross" (click)="toggleMobileMenu()"></fa-icon>
+  <fa-icon *ngIf="!mobileNav" class="fa-xl toggle" [icon]="this.bar" (click)="toggleMobileMenu()"></fa-icon>
+  <fa-icon *ngIf="mobileNav" class="fa-xl toggle" [icon]="this.cross" (click)="toggleMobileMenu()"></fa-icon>
 </nav>
-<div *ngIf="show" [ngSwitch]="menuType" class="mobileMenu">
+<div *ngIf="mobileNav" [ngSwitch]="menuType" class="mobileMenu">
   <div *ngIf="menuType ==='default'" class="nav-search">
     <input type="text" placeholder="Search for Products" />
     <button>Search</button>

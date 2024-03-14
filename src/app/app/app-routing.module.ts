@@ -8,6 +8,7 @@ import { SellerAuthComponent } from '../components/seller-auth/seller-auth.compo
 import { SellerhomeComponent } from '../components/seller-auth/sellerhome/sellerhome.component';
 import { SellerAddProductComponent } from '../components/seller-auth/seller-add-product/seller-add-product.component';
 import { SellerEditProductComponent } from '../components/seller-auth/seller-edit-product/seller-edit-product.component';
+import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'seller-home',
     component: SellerhomeComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailsComponent,
   },
   { path: 'user-login', component: LoginComponent },
   { path: '**', component: PagenotfoundComponent },

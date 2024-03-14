@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit{
   menProductList: Product[] = [];
   womenProductList: Product[] = [];
   accesList : Product[] = [];
+  numbers = [1,2,3,4];
   background = '';
+  isLoading = false;
 
 
   constructor(private productService: ProductService) {}
@@ -31,13 +33,14 @@ export class HomeComponent implements OnInit{
 
   setBackground() {
     this.background = this.backgrounds[0];
-    console.log(this.background);
   }
 
   popularProducts(){
+    this.isLoading = true;
     this.productService.popularProduct().subscribe((result: Product[]) => {
       if(result){
         this.productList = result;
+        this.isLoading = true;
       } else{
         console.log(result);
       }
@@ -45,9 +48,11 @@ export class HomeComponent implements OnInit{
   }
 
   accesProduct(){
+    this.isLoading = true;
     this.productService.accesProduct().subscribe((result: Product[]) => {
       if(result){
         this.accesList = result;
+        this.isLoading = false;
       } else{
         console.log(result);
       }
@@ -55,9 +60,11 @@ export class HomeComponent implements OnInit{
   }
   
   menProducts(){
+    this.isLoading = true;
     this.productService.menProduct().subscribe((result: Product[]) => {
       if(result){
         this.menProductList = result;
+        this.isLoading = false;
       } else{
         console.log(result);
       }
@@ -65,9 +72,11 @@ export class HomeComponent implements OnInit{
   }
   
   womenProducts(){
+    this.isLoading = true;
     this.productService.womenProduct().subscribe((result: Product[]) => {
       if(result){
         this.womenProductList = result;
+        this.isLoading = false;
       } else{
         console.log(result);
       }
