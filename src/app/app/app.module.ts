@@ -17,6 +17,8 @@ import { SellerEditProductComponent } from '../components/seller-auth/seller-edi
 import { SellerhomeComponent } from '../components/seller-auth/sellerhome/sellerhome.component';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { ProductDetailsComponent } from '../components/product-details/product-details.component';
+import { UserAuthComponent } from '../components/user-auth/user-auth.component';
 
 @NgModule({
   imports: [
@@ -41,6 +43,8 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     PagenotfoundComponent,
     FooterComponent,
+    ProductDetailsComponent,
+    UserAuthComponent
   ],
   bootstrap: [AppComponent],
   providers: [

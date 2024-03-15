@@ -14,7 +14,7 @@ export class SellerService {
 
   sellerSignUp(data: SignUp) {
     this.http
-      .post('http://localhost:3000/seller', data, { observe: 'response' })
+      .post('http://localhost:3000/sellers', data, { observe: 'response' })
       .subscribe((result) => {
         if (result) {
           localStorage.setItem('seller', JSON.stringify(result.body));
@@ -30,7 +30,7 @@ export class SellerService {
   sellerLogIn(data: LogIn) {
     this.http
       .get(
-        `http://localhost:3000/seller?email=${data.email}&password=${data.password}`,
+        `http://localhost:3000/sellers?email=${data.email}&password=${data.password}`,
         { observe: 'response' }
       )
       .subscribe((result: any) => {

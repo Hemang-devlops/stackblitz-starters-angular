@@ -1,1 +1,37 @@
-<!-- p -->
+<div class="row product-details" *ngIf="productData">
+    <div class="col-sm-2">
+        <ul class="parent-image">
+            <li [ngClass]="currentImage === productData.thumbnail ? 'selectedImage' : ''">
+                <img class="image" (click)="changeImage(productData.thumbnail)" src="{{productData.thumbnail}}"
+                    alt="{{productData.title}}">
+            </li>
+            <li *ngFor="let image of productData.images" [ngClass]="currentImage === image ?'selectedImage' : ''">
+                <img class="image" (click)="changeImage(image)" src="{{image}}" alt="{{productData.title}}">
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-6 product-image">
+        <img src="{{currentImage}}" alt="{{productData.title | titlecase }}">
+        <div class="btn-wrapper">
+            <div class="quantity-grp">
+                <button (click)="handleQuantity('decrease')" class="dec">-</button>
+                <input type="text" name="quantity" value="{{productQuantity}}">
+                <button (click)="handleQuantity('increase')" class="inc">+</button>
+            </div>
+            <a href="" class='add btn'>Add to Cart</a>
+            <a href="" class="buy btn">Buy Now</a>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="product-detail">
+            <div class="product-name">
+                <h1>{{productData.title}}</h1>
+                <strong> Price</strong> : ${{productData.price}}<br>
+                <strong> Brand</strong> : {{productData.brand | titlecase }}<br>
+                <strong> Category</strong> : {{productData.category | titlecase }}<br>
+                <strong> Stock</strong> : {{productData.stock}}<br>
+                <strong>Description: </strong>{{productData.description}}<br>
+            </div>
+        </div>
+    </div>
+</div>

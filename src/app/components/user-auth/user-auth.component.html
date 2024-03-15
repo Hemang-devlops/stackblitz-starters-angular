@@ -1,0 +1,90 @@
+<div class="user-auth">
+    <div class="signup form_container" *ngIf="!showLogin">
+        <form #userSignUp="ngForm" (ngSubmit)="signUp(userSignUp.value)" class="form">
+            <div class="form__title">User Sign Up</div>
+            <div class="form__item">
+                <label for="name" class="form__label">Name</label>
+                <input ngModel type="text" class="form__input" name="name" id="name" placeholder="Enter your name" />
+            </div>
+            <div class="form__item">
+                <label for="email" class="form__label">Email</label>
+                <input ngModel type="email" class="form__input" name="email" id="email"
+                    placeholder="Enter your email" />
+            </div>
+            <div class="form__item">
+                <label for="password" class="form__label">Password</label>
+                <input ngModel type="password" class="form__input" name="password" id="password"
+                    placeholder="Enter your password" />
+                <div *ngIf="passwordIns" class="password-instructions">
+                    <h4>Create a Strong Password</h4>
+                    <ul>
+                        <li>Use at least {{ passwordMinLength }} characters.</li>
+                        <li>Include a mix of uppercase and lowercase letters.</li>
+                        <li>Include at least one number.</li>
+                        <li>Include at least one special character (e.g., !&#64;#$%^&*).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form__item">
+                <label for="cpassword" class="form__label">Confirm Password</label>
+                <input ngModel type="password" class="form__input" name="cpassword" id="cpassword"
+                    placeholder="Enter your password again" />
+            </div>
+            <div class="form__item">
+                <span class="form__error">{{this.formError}}</span>
+                <button class="form__btn" type="submit">Sign Up</button>
+                <p class="toggleLogin">
+                    Already have a User account?
+                    <span (click)="toggleLogin()">Click here</span>
+                </p>
+            </div>
+        </form>
+        <h3 class="social_option">or <br> Sign up with</h3>
+        <div class="social-signup">
+            <button class="btn facebook" data-provider="facebook">
+                <i class="fab fa-facebook-f"></i><span>Facebook</span>
+            </button>
+            <button class="btn twitter" data-provider="twitter">
+                <i class="fab fa-twitter"></i><span>Twitter</span>
+            </button>
+            <button class="btn google" data-provider="google">
+                <i class="fab fa-google"></i><span>Google</span>
+            </button>
+        </div>
+    </div>
+    <div class="login form_container" *ngIf="showLogin">
+        <form #userLogIn="ngForm" (ngSubmit)="logIn(userLogIn.value)" class="form">
+            <div class="form__title">User Log In</div>
+            <div class="form__item">
+                <label for="email" class="form__label">Email</label>
+                <input ngModel type="email" class="form__input" name="email" id="email"
+                    placeholder="Enter your email" />
+            </div>
+            <div class="form__item">
+                <label for="password" class="form__label">Password</label>
+                <input ngModel type="password" class="form__input" name="password" id="password"
+                    placeholder="Enter your password" />
+            </div>
+            <div class="form__item">
+                <span class="form__error">{{this.formError}}</span>
+                <button class="form__btn" type="submit">Log In</button>
+                <p class="toggleLogin">
+                    Don't have a User account?
+                    <span (click)="toggleLogin()">Click here</span>
+                </p>
+            </div>
+        </form>
+        <h3 class="social_option">or<br> Log In with</h3>
+        <div class="social-signup">
+            <button class="btn facebook" data-provider="facebook">
+                <i class="fab fa-facebook-f"></i><span>Facebook</span>
+            </button>
+            <button class="btn twitter" data-provider="twitter">
+                <i class="fab fa-twitter"></i><span>Twitter</span>
+            </button>
+            <button class="btn google" data-provider="google">
+                <i class="fab fa-google"></i><span>Google</span>
+            </button>
+        </div>
+    </div>
+</div>

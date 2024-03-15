@@ -132,15 +132,15 @@
 
 @media only screen  and (max-width:1024px){
     .parent .women{
-        right: 15px;
+        /* right: 15px; */
         width: min-content;
-        position: relative;
+        /* position: relative; */
     }
 
     .parent .acces{
-        right: 25px;
+        /* right: 25px; */
         width: min-content;
-        position: relative;
+        /* position: relative; */
     }
 }
 .parent .acces{

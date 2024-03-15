@@ -5,43 +5,109 @@
     border: 1px solid #ddd; /* Optional border for styling */
     padding: 10px; /* Add some padding within the container */
   }
-  
-  /* Product Image */
-  .product-image {
-    flex: 0 0 200px; /* Set a fixed width for the image */
-    margin-right: 20px; /* Add margin between image and details */
-  }
-  
-  .product-image img {
-    width: 100%; /* Ensure image fills the available space */
-    object-fit: cover; /* Crop or contain image to fit within container */
-  }
-  
-  /* Product Details Section */
-  .product-detail {
-    flex: 1; /* Allow details to occupy remaining space */
-  }
-  
-  /* Product Name */
-  .product-name {
-    font-weight: bold;
-    margin-bottom: 5px; /* Add spacing after the name */
-  }
-  
-  /* Product Price */
-  .product-price {
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  /* Product Category */
-  .product-category {
-    font-style: italic;
-    margin-bottom: 5px;
-  }
-  
-  /* Product Description */
-  .product-description {
-    text-align: justify; /* Justify the text for better readability */
-  }
-  
+
+.product-image img {
+  width: 100%; /* Ensure image fills the available space */
+  height: 400px;
+  object-fit: contain; /* Crop or contain image to fit within container */
+}
+
+/* Product Details Section */
+.product-detail {
+  flex: 1; /* Allow details to occupy remaining space */
+}
+
+/* Product Name */
+.product-name {
+  margin-bottom: 5px; /* Add spacing after the name */
+}
+
+/* Product Price */
+.product-price {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.selectedImage {
+  border: 3px solid blueviolet;
+  border-radius: 4px;
+}
+
+/* Product Category */
+.product-category {
+  /* font-style: italic; */
+  margin-bottom: 5px;
+}
+
+/* Product Description */
+.product-description {
+  text-align: justify; /* Justify the text for better readability */
+}
+
+.parent-image{
+  width: 100%;
+  list-style: none;
+}
+
+.image{
+  width: 100%;
+  min-height: max-content;
+  object-fit: contain;
+}
+
+.col-sm-2 ul{
+  height: 384px;
+}
+
+.image{
+  height: 64px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.buy {
+  color: #fff;
+  background-color: #fb641b;
+  width: 100px;
+  font-size: small;
+  height: fit-content;
+}
+.add {
+  color: #fff;
+  background-color: #ff9f00;
+  width: 100px;
+  font-size: small;
+  height: fit-content;
+}
+
+.quantity-grp{
+  display:flex;
+  width: 100px;
+}
+
+.quantity-grp input{
+  width: 30px;
+  border: 1px solid #ccc;
+}
+
+.quantity-grp button {
+  border: none;
+  background-color: blueviolet;
+  color: #fff;
+  width: 30px;
+}
+
+.dec{
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.inc{
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
