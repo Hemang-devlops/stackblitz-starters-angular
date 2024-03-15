@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\" \"json-server --watch db.json -p 3000\"",
-    "build": "concurrently \"ng build\" \"json-server --watch db.json -p 3000\""
+    "build": "ng build"
   },
   "dependencies": {
     "@angular/animations": "^17.2.0",
