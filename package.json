@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve\" \"json-server --watch db.json -p 3000\"",
+    "start": "ng serve",
     "build": "ng build"
   },
   "dependencies": {
