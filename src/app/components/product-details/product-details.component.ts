@@ -23,8 +23,8 @@ export class ProductDetailsComponent {
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.productId);
     this.productService.getProduct(this.productId).subscribe(result => {
-      this.productData = result;
-      this.currentImage = result.thumbnail;
+      this.productData = result.products[0];
+      this.currentImage = result.products[0].thumbnail;
       console.log(this.productData);
     });
   }

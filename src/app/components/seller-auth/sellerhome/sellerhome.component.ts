@@ -24,7 +24,7 @@ export class SellerhomeComponent implements OnInit {
   getProductList() {
     this.product.getProducts().subscribe(result => {
       if (result) {
-        this.productList = result;
+        this.productList = result.products;
       } else {
         console.error("product not found");
       }

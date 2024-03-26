@@ -125,7 +125,7 @@ export class HeaderComponent implements OnInit {
       const element = query.target as HTMLInputElement;
       // console.log(element.value);
       this.productService.searchProduct(element.value).subscribe(result => {
-        this.searchProductData = result;
+        this.searchProductData = result.products;
       });
     }
   }

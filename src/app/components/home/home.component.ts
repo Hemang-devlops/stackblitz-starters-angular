@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../app/data-type';
+import { Product, Result } from '../../app/data-type';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -37,21 +37,22 @@ export class HomeComponent implements OnInit{
 
   popularProducts(){
     this.isLoading = true;
-    this.productService.popularProduct().subscribe((result: Product[]) => {
-      if(result){
-        this.productList = result;
-        this.isLoading = true;
-      } else{
-        console.log(result);
-      }
+    this.productService.popularProduct().subscribe((result: Result) => {
+        if(result){
+            this.productList = result.products;
+            this.isLoading = true;
+        } else{
+            console.log(result);
+        }
     });
   }
 
   accesProduct(){
     this.isLoading = true;
-    this.productService.accesProduct().subscribe((result: Product[]) => {
+    this.productService.accesProduct().subscribe((result: Result) => {
       if(result){
-        this.accesList = result;
+        console.log(result.products, 'result')
+        this.accesList = result.products;
         this.isLoading = false;
       } else{
         console.log(result);
@@ -61,9 +62,9 @@ export class HomeComponent implements OnInit{
   
   menProducts(){
     this.isLoading = true;
-    this.productService.menProduct().subscribe((result: Product[]) => {
+    this.productService.menProduct().subscribe((result: Result) => {
       if(result){
-        this.menProductList = result;
+        this.menProductList = result.products;
         this.isLoading = false;
       } else{
         console.log(result);
@@ -73,9 +74,9 @@ export class HomeComponent implements OnInit{
   
   womenProducts(){
     this.isLoading = true;
-    this.productService.womenProduct().subscribe((result: Product[]) => {
+    this.productService.womenProduct().subscribe((result: Result) => {
       if(result){
-        this.womenProductList = result;
+        this.womenProductList = result.products;
         this.isLoading = false;
       } else{
         console.log(result);
