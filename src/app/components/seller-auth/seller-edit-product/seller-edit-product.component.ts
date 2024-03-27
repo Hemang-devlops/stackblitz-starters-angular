@@ -28,7 +28,7 @@ export class SellerEditProductComponent implements OnInit {
   getProduct(id: string) {
     this.product.getProduct(id).subscribe(result => {
       if (result) {
-        this.productData = result.products[0];
+        this.productData = result;
         console.log(result);
       } else {
         console.error("product not found");

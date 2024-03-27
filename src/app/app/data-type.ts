@@ -30,7 +30,7 @@ export interface ImageObject {
   subtitle: string; // Add a subtitle property
 }
 
-export interface Result {
+export interface ResultList {
   products: Product[];
   total: number;
   skip: number;

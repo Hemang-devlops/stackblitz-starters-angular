@@ -19,15 +19,13 @@ export class ProductDetailsComponent {
   currentImage : string | undefined;
   productQuantity : number = 1;
 
-  ngOnInit(): void {
-    this.productId = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.productId);
-    this.productService.getProduct(this.productId).subscribe(result => {
-      this.productData = result.products[0];
-      this.currentImage = result.products[0].thumbnail;
-      console.log(this.productData);
-    });
-  }
+    ngOnInit(): void {
+        this.productId = this.activatedRoute.snapshot.paramMap.get('id');
+        this.productService.getProduct(this.productId).subscribe(result => {
+            this.productData = result;
+            this.currentImage = result.thumbnail;
+        });
+    }
 
   changeImage(image : string){
     this.currentImage = image;

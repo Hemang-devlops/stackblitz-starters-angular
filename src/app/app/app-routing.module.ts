@@ -9,6 +9,7 @@ import { SellerAddProductComponent } from '../components/seller-auth/seller-add-
 import { SellerEditProductComponent } from '../components/seller-auth/seller-edit-product/seller-edit-product.component';
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserAuthComponent } from '../components/user-auth/user-auth.component';
+import { SearchResultsComponent } from '../components/search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,11 +33,13 @@ const routes: Routes = [
     path: 'product/:id',
     component: ProductDetailsComponent,
   },
-  { path: 'user-auth', 
-  component: UserAuthComponent 
+  { path: 'user-auth', component: UserAuthComponent },
+  {
+    path: 'searchResults/:searchQuery',
+    component: SearchResultsComponent,
   },
   { path: '**', component: PagenotfoundComponent },
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
