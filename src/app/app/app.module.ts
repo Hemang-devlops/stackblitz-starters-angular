@@ -19,6 +19,7 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserAuthComponent } from '../components/user-auth/user-auth.component';
+import { SearchResultsComponent } from '../components/search-results/search-results.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { UserAuthComponent } from '../components/user-auth/user-auth.component';
     PagenotfoundComponent,
     FooterComponent,
     ProductDetailsComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    SearchResultsComponent
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -1,0 +1,134 @@
+.product-list-wrapper{
+    padding: 40px 30px;
+    padding-bottom: 0;
+}
+
+.product-list-wrapper *{
+    text-decoration: none;
+}
+
+.productList{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.product{
+    width: 50%;
+}
+
+.product-header a{
+    height: max-content;
+    background: blueviolet;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.product-header a:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in-out;
+}
+
+.product-details{
+    /* margin-top: 10px; */
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+.product-icon , .skeleton{
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+
+.product-icon img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+*.item{   
+    font-size: smaller;
+}
+
+.loading-item{   
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #eeeeeea6;
+    margin: 5px;
+    width: 100%;
+    display: flex;
+}
+
+.product-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-footer *{
+    /* color: white;
+    background-color: blueviolet;
+    margin: 5px 0;
+    padding: 3px;
+    border-radius: 4px; */
+    margin: 5px 0;
+}
+
+@media screen and (min-width:1024px) {
+    .product-footer *{
+        padding: 10px;
+    }
+
+    .product{
+        width: 50%;
+    }
+}
+
+.product-price, .product-category{
+    text-align:center;
+}
+
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 80%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+  
+  .skeleton-text {
+    width: 100%;
+    height: 0.7rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  .skeleton-text__body {
+    width: 75%;
+  }
+  
+  .skeleton-footer {
+    width: 30%;
+  }
+
+  .product-price, .skeleton, .product-category , .skeleton{
+    display: flex;
+    font-size: smaller;
+  }
+
+  .card{
+    background-color: #eeeeeea6;
+    border:none;
+  }
+
+  .card__footer{
+    display: flex;
+    justify-content: space-between;
+  }

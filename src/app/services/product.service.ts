@@ -53,6 +53,7 @@ export class ProductService {
   }
 
   searchProduct(query: string | null) {
+    console.log(`https://dummyjson.com/products/search?q=${query}&limit=9`);
     return this.http.get<ResultList>(
       `https://dummyjson.com/products/search?q=${query}&limit=9`
     )

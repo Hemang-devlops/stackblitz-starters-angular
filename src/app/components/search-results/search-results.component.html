@@ -1,1 +1,52 @@
-<p>search-results works!</p>
+<div class="product-list-wrapper">
+    <div class="product-header">
+        <h1>Search Result: "{{searchQuery}}"</h1>
+    </div>
+    <div *ngIf="isLoading" class="loading">
+        <div class='loading-item' *ngFor="let i of numbers; index as idx">
+            <a class="card" id="card-link" target="_blank">
+                <div class="card__body">
+                    <div class="card__body body__img">
+                        <img class="skeleton" alt="" id="cover-img" />
+                    </div>
+                </div>
+                <div class="card__header">
+                    <h3 class="card__header header__title" id="card-title">
+                        <div class="product-price">
+                            Price:
+                            <div class="skeleton skeleton-text"></div>
+                        </div>
+                        <div class="product-category">
+                            Brand:
+                            <div class="skeleton skeleton-text"></div>
+                        </div>
+                    </h3>
+                </div>
+                <div class="card__footer" id="card-footer">
+                    <div class="skeleton skeleton-text skeleton-footer"></div>
+                    <div class="skeleton skeleton-text skeleton-footer"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="productList">
+        <div class="product item" *ngFor="let product of productData">
+            <div class="product-icon">
+                <a routerLink="/product/{{product.id}}"><img src="{{product.images[0]}}" alt=""></a>
+            </div>
+            <div class="product-details">
+                <p class="name-head">{{product.title}}</p>
+                <div class="product-price">
+                    Price: ${{product.price}}
+                </div>
+                <div class="product-category">
+                    Brand: {{product.brand}}
+                </div>
+                <div class="product-footer">
+                    <a routerLink="/product/{{product.id}}">View Details</a>
+                    <a href="">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

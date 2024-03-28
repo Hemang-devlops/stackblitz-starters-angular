@@ -88,9 +88,7 @@
 
 .product-price, .product-category{
     text-align:center;
-}/* body{
-    background-color: black;
-} */
+}
 
 .parent {
     display: grid;
