@@ -1,6 +1,6 @@
 <div class="product-list-wrapper">
     <div class="product-header">
-        <h1>Search Result: "{{searchQuery}}"</h1>
+        <h1 *ngIf="!noResults">Search Result: "{{searchQuery}}"</h1>
     </div>
     <div *ngIf="isLoading" class="loading">
         <div class='loading-item' *ngFor="let i of numbers; index as idx">
@@ -30,9 +30,11 @@
         </div>
     </div>
     <div class="productList">
-        <div class="product item" *ngFor="let product of productData">
+        <!-- <div class="product-item" *ngFor="let product of productData">
             <div class="product-icon">
-                <a routerLink="/product/{{product.id}}"><img src="{{product.images[0]}}" alt=""></a>
+                <a routerLink="/product/{{product.id}}">
+                    <img src="{{product.images[0]}}" alt="">
+                </a>
             </div>
             <div class="product-details">
                 <p class="name-head">{{product.title}}</p>
@@ -43,10 +45,45 @@
                     Brand: {{product.brand}}
                 </div>
                 <div class="product-footer">
-                    <a routerLink="/product/{{product.id}}">View Details</a>
-                    <a href="">Add to Cart</a>
+                    <a class="btn" routerLink="/product/{{product.id}}">View Details</a>
+                    <a class="btn" href="">Add to Cart</a>
                 </div>
             </div>
+        </div> -->
+        <div class="row search-item" *ngFor="let item of productData">
+            <div class="col-sm-3">
+                <a routerLink="/details/{{item.id}}">
+                    <img src="{{item.images[0]}}" alt="">
+                </a>
+            </div>
+            <div class="col-sm-8 details">
+                <h6> <a routerLink="/details/{{item.id}}" class="product-title"> {{item.title}} </a></h6>
+                <p><b>Price:{{item.price}}</b></p>
+                <p>
+                    <span>Color:{{item.brand}}</span>
+                    <span>Category: {{item.category}}</span>
+                </p>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="noResults" *ngIf="noResults">
+        <h1> No Results for: "{{searchQuery}}"</h1>
+        <div class="card container">
+            <div class="card-body">
+                <h2 class="card-title">Sorry, We Couldn't Find a Match</h2>
+                <div class="row">
+                    <div class="col-sm-">
+                        <div class="heading">Try Finding it Another Way</div>
+                        <ul>
+                            <li>Use different Search words.</li>
+                            <li>Check your Spelling.</li>
+                            <li>Enter other details.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

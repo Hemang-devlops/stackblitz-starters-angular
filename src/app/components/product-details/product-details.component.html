@@ -18,8 +18,8 @@
                 <input type="text" name="quantity" value="{{productQuantity}}">
                 <button (click)="handleQuantity('increase')" class="inc">+</button>
             </div>
-            <a href="" class='add btn'>Add to Cart</a>
-            <a href="" class="buy btn">Buy Now</a>
+            <button class='add btn' (click)="addToCart()">Add to Cart</button>
+            <button class="buy btn">Buy Now</button>
         </div>
     </div>
     <div class="col-sm-4">

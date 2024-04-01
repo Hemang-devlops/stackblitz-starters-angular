@@ -52,10 +52,11 @@ export class HeaderComponent implements OnInit {
     'lighting',
   ];
   searchQuery : string = '';
+  cartItems : number = 0;
 
   ngOnInit(): void {
     window.scrollTo(0, 0)
-
+    
     this.location.onUrlChange((url: string) => {
       this.mobileNav = false
     })
@@ -79,6 +80,14 @@ export class HeaderComponent implements OnInit {
           this.menuType = 'default'
         }
       }
+    })
+
+    let cartData = localStorage.getItem('localCart');
+    if (cartData){
+      this.cartItems = JSON.parse(cartData).length;
+    }
+    this.productService.cartData.subscribe(items => {
+      this.cartItems = items.length;
     })
   }
 

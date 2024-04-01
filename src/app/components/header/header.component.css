@@ -296,3 +296,12 @@ margin: 5px 0;
 .search-result:hover{
   border: 1px solid #ddd;
 }
+
+.wpex-header-cart-icon__count{
+  transform: scale(0.5);
+  padding: 0 5px;
+  top: -5px;
+  position: relative;
+  border: 1px solid #000;
+  border-radius: 35px;
+}

@@ -18,7 +18,7 @@
       </li>
       <li class="menuItem"><a routerLink="seller-auth">Seller</a></li>
       <li class="menuItem"><a routerLink="user-auth">Login</a></li>
-      <li class="menuItem"><a href="#">Cart</a></li>
+      <li class="menuItem"><a routerLink="cart">Cart<span class="wpex-header-cart-icon__count">{{cartItems}}</span></a></li>
     </ul>
     <ul *ngSwitchCase="'user'"  class="menuItems">
       <li class="menuItem"><a routerLink="/">Home</a></li>
@@ -28,7 +28,7 @@
       <li class="menuItem"><a routerLink="seller-auth">Seller</a></li>
       <li class="menuItem">{{userName | titlecase }}</li>
       <li class="menuItem"><a routerLink="user-logout" (click)="logoutUser()">Log out</a></li>
-      <li class="menuItem"><a href="#">Cart</a></li>
+      <li class="menuItem"><a href="#">Cart <span class="wpex-header-cart-icon__count">{{cartItems}}</span></a></li>
     </ul>
     <ul *ngSwitchCase="'seller'" class="menuItems">
       <li class="menuItem"><a routerLink="seller-add-product">Add Product</a></li>
@@ -42,15 +42,18 @@
 </nav>
 <div *ngIf="mobileNav" [ngSwitch]="menuType" class="mobileMenu">
   <div *ngIf="menuType ==='default'" class="nav-search">
-    <input type="text" placeholder="Search for Products" />
-    <button>Search</button>
+    <input type="text" placeholder="Search for Products" (keyup)="searchProducts($event)" (blur)="hideSearch()" />
+    <button (click)="searchResults()">Search</button>
+    <ul class="search-results-mobile" *ngIf="searchProductData">
+      <li class="search-result" *ngFor="let product of searchProductData" (click)="clickSearchResult(product.id)">{{product.title}}</li>
+    </ul>
   </div>
   <ul *ngSwitchDefault class="menuItems">
     <li class="menuItem"><a routerLink="/">Home</a></li>
       <li class="menuItem"><a (click)="toggleCategories()">Category</a></li>
       <li class="menuItem"><a routerLink="seller-auth">Seller</a></li>
     <li class="menuItem"><a routerLink="user-auth">Login</a></li>
-    <li class="menuItem"><a href="#">Cart</a></li>
+    <li class="menuItem"><a routerLink="cart">Cart<span  class="wpex-header-cart-icon__count">{{cartItems}}</span></a></li>
   </ul>
   <ul *ngSwitchCase="'user'" class="menuItems">
     <li class="menuItem"><a routerLink="/">Home</a></li>
@@ -58,7 +61,7 @@
       <li class="menuItem"><a routerLink="seller-auth">Seller</a></li>
       <li class="menuItem"><a>{{userName | titlecase }}</a></li>
       <li class="menuItem"><a routerLink="seller-logout" (click)="logoutSeller()">Log out</a></li>
-    <li class="menuItem"><a href="#">Cart</a></li>
+    <li class="menuItem"><a routerLink="cart">Cart<span  class="wpex-header-cart-icon__count">{{cartItems}}</span></a></li>
   </ul>
   <ul *ngSwitchCase="'seller'" class="menuItems">
     <li class="menuItem"><a routerLink="seller-add-product">Add Product</a></li>

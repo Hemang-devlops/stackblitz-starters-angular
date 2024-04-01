@@ -13,10 +13,10 @@ import { Product } from '../../app/data-type';
 export class ProductDetailsComponent {
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute){}
 
-  productData: Product | undefined;
+  productData!: Product;
   productId: string | null = null;
   isLoading = false;
-  currentImage : string | undefined;
+  currentImage !: string;
   productQuantity : number = 1;
 
     ngOnInit(): void {
@@ -36,5 +36,16 @@ export class ProductDetailsComponent {
 
     }
     this.productQuantity = val === 'increase' && this.productQuantity < 20 ? this.productQuantity + 1 : this.productQuantity > 1 ? this.productQuantity - 1 : 1; 
+  }
+
+  addToCart(){
+    if(this.productData){
+      this.productData.quantity = this.productQuantity;
+      if (localStorage.getItem("user")){
+        console.log(this.productData)
+      } else{
+        this.productService.localAddToCart(this.productData);
+      }
+    }
   }
 }

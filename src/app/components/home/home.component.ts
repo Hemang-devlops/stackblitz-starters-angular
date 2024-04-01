@@ -8,17 +8,19 @@ import { ProductService } from '../../services/product.service';
     styleUrl: './home.component.css'
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
     productList: Product[] = [];
     menProductList: Product[] = [];
     womenProductList: Product[] = [];
-    accesList : Product[] = [];
-    numbers = [1,2,3,4];
+    accesList: Product[] = [];
+    numbers = [1, 2, 3, 4];
     background = '';
     isLoading = false;
+    productData!: Product;
+    productQuantity!: number;
 
 
-    constructor(private productService: ProductService) {}
+    constructor(private productService: ProductService) { }
 
     ngOnInit(): void {
         this.popularProducts();
@@ -35,51 +37,64 @@ export class HomeComponent implements OnInit{
         this.background = this.backgrounds[0];
     }
 
-    popularProducts(){
+    popularProducts() {
         this.isLoading = true;
         this.productService.popularProduct().subscribe((result: ResultList) => {
-            if(result){
+            if (result) {
                 this.productList = result.products;
                 this.isLoading = false;
-            } else{
+            } else {
                 console.log(result);
             }
         });
     }
 
-    accesProduct(){
+    accesProduct() {
         this.isLoading = true;
         this.productService.accesProduct().subscribe((result: ResultList) => {
-        if(result){
-            this.accesList = result.products;
-            this.isLoading = false;
-        } else{
-            console.log(result);
-        }
+            if (result) {
+                this.accesList = result.products;
+                this.isLoading = false;
+            } else {
+                console.log(result);
+            }
         });
     }
-  
-    menProducts(){
+
+    menProducts() {
         this.isLoading = true;
         this.productService.menProduct().subscribe((result: ResultList) => {
-        if(result){
-            this.menProductList = result.products;
-            this.isLoading = false;
-        } else{
-            console.log(result);
-        }
+            if (result) {
+                this.menProductList = result.products;
+                this.isLoading = false;
+            } else {
+                console.log(result);
+            }
         });
     }
-  
-    womenProducts(){
+
+    womenProducts() {
         this.isLoading = true;
         this.productService.womenProduct().subscribe((result: ResultList) => {
-        if(result){
-            this.womenProductList = result.products;
-            this.isLoading = false;
-        } else{
-            console.log(result);
-        }
+            if (result) {
+                this.womenProductList = result.products;
+                this.isLoading = false;
+            } else {
+                console.log(result);
+            }
         });
+    }
+
+    addToCart(product: Product) {
+        this.productData = product;
+        if (this.productData) {
+            this.productData.quantity = this.productQuantity;
+            console.log(this.productData)
+            if (localStorage.getItem("user")) {
+                console.log(this.productData)
+            } else {
+                this.productService.localAddToCart(this.productData);
+            }
+        }
     }
 }

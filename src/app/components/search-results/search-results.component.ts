@@ -9,18 +9,24 @@ import { Product } from '../../app/data-type';
   styleUrl: './search-results.component.css'
 })
 export class SearchResultsComponent implements OnInit {
-    productData: Product[] = [];
     constructor(private productService: ProductService, private activatedRoute: ActivatedRoute){}
-
-    searchQuery: string | null = '';
+    
+    productData: Product[] = [];
+    searchQuery!: string;
+    noResults = false;
     isLoading = false;
     numbers = [1,2,3,4];
 
     ngOnInit(): void {
-        this.searchQuery = this.activatedRoute.snapshot.paramMap.get('searchQuery')
-        this.productService.searchProduct(this.searchQuery).subscribe(result => {
-            this.productData = result.products;
-            console.log(result, 'result');
-        });
+        this.activatedRoute.params.subscribe(params => {
+            this.searchQuery = params['searchQuery'];
+            this.productService.searchProduct(this.searchQuery).subscribe(result => {
+                this.productData = result.products;
+                this.noResults = false;
+                if (this.productData.length < 1){
+                    this.noResults = true;
+                }
+            });
+        })
     }
 }

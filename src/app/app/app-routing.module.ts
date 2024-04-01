@@ -10,6 +10,7 @@ import { SellerEditProductComponent } from '../components/seller-auth/seller-edi
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserAuthComponent } from '../components/user-auth/user-auth.component';
 import { SearchResultsComponent } from '../components/search-results/search-results.component';
+import { CartComponent } from '../components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
     path: 'searchResults/:searchQuery',
     component: SearchResultsComponent,
   },
+  { path: 'cart', component: CartComponent },
   { path: '**', component: PagenotfoundComponent },
 ]
 

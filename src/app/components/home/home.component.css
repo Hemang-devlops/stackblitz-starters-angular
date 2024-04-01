@@ -213,3 +213,8 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .addToCart{
+    border: none;
+    color: blue;
+  }

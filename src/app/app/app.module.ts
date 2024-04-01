@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from '../components/product-details/product-details.component';
 import { UserAuthComponent } from '../components/user-auth/user-auth.component';
 import { SearchResultsComponent } from '../components/search-results/search-results.component';
+import { CartComponent } from '../components/cart/cart.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { SearchResultsComponent } from '../components/search-results/search-resu
     FooterComponent,
     ProductDetailsComponent,
     UserAuthComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    CartComponent
   ],
   bootstrap: [AppComponent],
   providers: [

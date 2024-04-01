@@ -22,6 +22,7 @@ export interface Product{
   thumbnail: string,
   images: string[],
   description: string;
+  quantity ?: number;
 }
 
 export interface ImageObject {

@@ -31,32 +31,33 @@
             <h1>Trendy Products</h1>
             <a href="">View All</a>
         </div>
-        <div *ngIf="isLoading" class="loading row" ><div class='col-sm-3' *ngFor="let i of numbers; index as idx">
-            <a class="card" id="card-link" target="_blank">
-            <div class="card__body">
-                <div class="card__body body__img">
-                    <img class="skeleton" alt="" id="cover-img" />
-                </div>
-            </div>
-            <div class="card__header">
-                <h3 class="card__header header__title" id="card-title">
-                <div class="product-price">
-                        Price: 
-                    <div class="skeleton skeleton-text"></div>
+        <div *ngIf="isLoading" class="loading row">
+            <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
+                <a class="card" id="card-link" target="_blank">
+                    <div class="card__body">
+                        <div class="card__body body__img">
+                            <img class="skeleton" alt="" id="cover-img" />
+                        </div>
                     </div>
-                    <div class="product-category">
-                        Brand: 
-                    <div class="skeleton skeleton-text"></div>
-                </div>
-            </h3>
+                    <div class="card__header">
+                        <h3 class="card__header header__title" id="card-title">
+                            <div class="product-price">
+                                Price:
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                            <div class="product-category">
+                                Brand:
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="card__footer" id="card-footer">
+                        <div class="skeleton skeleton-text skeleton-footer"></div>
+                        <div class="skeleton skeleton-text skeleton-footer"></div>
+                    </div>
+                </a>
             </div>
-            <div class="card__footer" id="card-footer">
-                <div class="skeleton skeleton-text skeleton-footer"></div>
-                <div class="skeleton skeleton-text skeleton-footer"></div>
-            </div>
-        </a>
         </div>
-    </div>
         <div class="row">
             <div class="col-sm-3" *ngFor="let product of productList">
                 <div class="product-icon">
@@ -73,7 +74,7 @@
                 </div>
                 <div class="product-footer">
                     <a routerLink="/product/{{product.id}}">View Details</a>
-                    <a href="">Add to Cart</a>
+                    <button (click)="addToCart(product)" class="addToCart">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -83,32 +84,33 @@
             <h1>Men's Fashion</h1>
             <a href="">View All</a>
         </div>
-        <div *ngIf="isLoading" class="loading row" ><div class='col-sm-3' *ngFor="let i of numbers; index as idx">
-            <a class="card" id="card-link" target="_blank">
-            <div class="card__body">
-                <div class="card__body body__img">
-                    <img class="skeleton" alt="" id="cover-img" />
-                </div>
-            </div>
-            <div class="card__header">
-                <h3 class="card__header header__title" id="card-title">
-                <div class="product-price">
-                        Price: 
-                    <div class="skeleton skeleton-text"></div>
+        <div *ngIf="isLoading" class="loading row">
+            <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
+                <a class="card" id="card-link" target="_blank">
+                    <div class="card__body">
+                        <div class="card__body body__img">
+                            <img class="skeleton" alt="" id="cover-img" />
+                        </div>
                     </div>
-                    <div class="product-category">
-                        Brand: 
-                    <div class="skeleton skeleton-text"></div>
-                </div>
-            </h3>
+                    <div class="card__header">
+                        <h3 class="card__header header__title" id="card-title">
+                            <div class="product-price">
+                                Price:
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                            <div class="product-category">
+                                Brand:
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="card__footer" id="card-footer">
+                        <div class="skeleton skeleton-text skeleton-footer"></div>
+                        <div class="skeleton skeleton-text skeleton-footer"></div>
+                    </div>
+                </a>
             </div>
-            <div class="card__footer" id="card-footer">
-                <div class="skeleton skeleton-text skeleton-footer"></div>
-                <div class="skeleton skeleton-text skeleton-footer"></div>
-            </div>
-        </a>
         </div>
-    </div>
         <div class="row">
             <div class="col-sm-3" *ngFor="let product of menProductList">
                 <div class="product-icon">
@@ -125,7 +127,8 @@
                 </div>
                 <div class="product-footer">
                     <a routerLink="/product/{{product.id}}">View Details</a>
-                    <a href="">Add to Cart</a>
+                    <button (click)="addToCart(product)" class="addToCart">Add to Cart</button>
+
                 </div>
             </div>
         </div>
@@ -135,32 +138,33 @@
             <h1>Women's Fashion</h1>
             <a href="">View All</a>
         </div>
-        <div *ngIf="isLoading" class="loading row" ><div class='col-sm-3' *ngFor="let i of numbers; index as idx">
-            <a class="card" id="card-link" target="_blank">
-            <div class="card__body">
-                <div class="card__body body__img">
-                    <img class="skeleton" alt="" id="cover-img" />
-                </div>
-            </div>
-            <div class="card__header">
-                <h3 class="card__header header__title" id="card-title">
-                <div class="product-price">
-                        Price: 
-                    <div class="skeleton skeleton-text"></div>
+        <div *ngIf="isLoading" class="loading row">
+            <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
+                <a class="card" id="card-link" target="_blank">
+                    <div class="card__body">
+                        <div class="card__body body__img">
+                            <img class="skeleton" alt="" id="cover-img" />
+                        </div>
                     </div>
-                    <div class="product-category">
-                        Brand: 
-                    <div class="skeleton skeleton-text"></div>
-                </div>
-            </h3>
+                    <div class="card__header">
+                        <h3 class="card__header header__title" id="card-title">
+                            <div class="product-price">
+                                Price:
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                            <div class="product-category">
+                                Brand:
+                                <div class="skeleton skeleton-text"></div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="card__footer" id="card-footer">
+                        <div class="skeleton skeleton-text skeleton-footer"></div>
+                        <div class="skeleton skeleton-text skeleton-footer"></div>
+                    </div>
+                </a>
             </div>
-            <div class="card__footer" id="card-footer">
-                <div class="skeleton skeleton-text skeleton-footer"></div>
-                <div class="skeleton skeleton-text skeleton-footer"></div>
-            </div>
-        </a>
         </div>
-    </div>
         <div class="row">
             <div class="col-sm-3" *ngFor="let product of womenProductList">
                 <div class="product-icon">
@@ -177,7 +181,8 @@
                 </div>
                 <div class="product-footer">
                     <a routerLink="/product/{{product.id}}">View Details</a>
-                    <a href="">Add to Cart</a>
+                    <button (click)="addToCart(product)" class="addToCart">Add to Cart</button>
+
                 </div>
             </div>
         </div>
@@ -203,37 +208,39 @@
                 </div>
                 <div class="product-footer">
                     <a routerLink="/product/{{product.id}}">View Details</a>
-                    <a href="">Add to Cart</a>
+                    <button (click)="addToCart(product)" class="addToCart">Add to Cart</button>
+
                 </div>
             </div>
             <!-- Loading -->
-            <div *ngIf="isLoading" class="loading row" ><div class='col-sm-3' *ngFor="let i of numbers; index as idx">
-                <a class="card" id="card-link" target="_blank">
-                <div class="card__body">
+            <div *ngIf="isLoading" class="loading row">
+                <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
+                    <a class="card" id="card-link" target="_blank">
+                        <div class="card__body">
 
-                    <div class="card__body body__img">
-                        <img class="skeleton" alt="" id="cover-img" />
-                    </div>
-                </div>
-                <div class="card__header">
-                    <h3 class="card__header header__title" id="card-title">
-                    <div class="product-price">
-                            Price: 
-                        <div class="skeleton skeleton-text"></div>
+                            <div class="card__body body__img">
+                                <img class="skeleton" alt="" id="cover-img" />
+                            </div>
                         </div>
-                        <div class="product-category">
-                            Brand: 
-                        <div class="skeleton skeleton-text"></div>
-                    </div>
-                </h3>
+                        <div class="card__header">
+                            <h3 class="card__header header__title" id="card-title">
+                                <div class="product-price">
+                                    Price:
+                                    <div class="skeleton skeleton-text"></div>
+                                </div>
+                                <div class="product-category">
+                                    Brand:
+                                    <div class="skeleton skeleton-text"></div>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="card__footer" id="card-footer">
+                            <div class="skeleton skeleton-text skeleton-footer"></div>
+                            <div class="skeleton skeleton-text skeleton-footer"></div>
+                        </div>
+                    </a>
                 </div>
-                <div class="card__footer" id="card-footer">
-                    <div class="skeleton skeleton-text skeleton-footer"></div>
-                    <div class="skeleton skeleton-text skeleton-footer"></div>
-                </div>
-            </a>
             </div>
-        </div>
         </div>
     </div>
 </div>
