@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Product } from '../../app/data-type';
 import { ProductService } from '../../services/product.service';
 
@@ -14,10 +14,13 @@ export class CartComponent implements OnInit{
   totalPrice = this.itemTotalPrice;
   deliveryPrice : number = 0;
   deliveryPriceList = [
-    {value: 5, name: `Standard-Delivery- `},
-    {value: 10, name: `Single-Day-Delivery- `}
+    {value: '0', name: `Select Delivery Type `, disabled: true},
+    {value: 5, name: 'Standard-Delivery- $5.00', disabled: false},
+    {value: 10, name: 'Single-Day-Delivery- $10.00', disabled: false}
   ]
   totalItems!: number;
+  localCart = new EventEmitter<Product[]>();
+
 
 
   constructor (private productService: ProductService){}
@@ -36,21 +39,25 @@ export class CartComponent implements OnInit{
   }
 
   calculateTotal() {
-    this.itemTotalPrice = this.cartData.reduce((prev: number, curr: Product) => {
-      const price = curr.price !== undefined ? curr.price : 0;
-      const quantity = curr.quantity || 0;
-      return prev + price * quantity;
-    }, 0);
+    const totalQuantity = this.cartData.reduce((prev, curr) => prev + (curr.quantity || 0), 0);
+    const itemTotalPrice = this.cartData.reduce((prev, curr) => prev + (curr.price || 0) * (curr.quantity || 0), 0);
+    this.totalItems = totalQuantity;
+    this.itemTotalPrice = itemTotalPrice;
+    this.totalPrice = itemTotalPrice + parseFloat(this.deliveryPrice.toString());
+    console.log(itemTotalPrice, this.deliveryPrice, typeof this.deliveryPrice);
+  }
+  
+  changeQuantity(product: Product, change: string) {
+    const existingItem = this.cartData.find(item => item.id === product.id);
+    if (existingItem && existingItem.quantity){
+      existingItem.quantity = Math.max(1, change === 'inc' ? Math.min(existingItem.quantity + 1, 20) : existingItem.quantity - 1);
 
-    this.totalItems = this.cartData.reduce((prev: number, curr: Product) => {
-      const quantity = curr.quantity || 1;
-      return prev + quantity;
-    }, 0);
-
-    this.totalPrice = this.itemTotalPrice + parseFloat(this.deliveryPrice.toString());
-    console.log(this.itemTotalPrice,(this.deliveryPrice), typeof(this.deliveryPrice))
+    }
+    this.calculateTotal();
   }
 
-  
+  removeItem(product: Product){
+    this.productService.removeItemFromCart(product.id);
+  }
 
 }

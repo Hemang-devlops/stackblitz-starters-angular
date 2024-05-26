@@ -13,13 +13,14 @@
     <div class="col-sm-6 product-image">
         <img src="{{currentImage}}" alt="{{productData.title | titlecase }}">
         <div class="btn-wrapper">
-            <div class="quantity-grp">
+            <div *ngIf="!inCart"  class="quantity-grp">
                 <button (click)="handleQuantity('decrease')" class="dec">-</button>
                 <input type="text" name="quantity" value="{{productQuantity}}">
                 <button (click)="handleQuantity('increase')" class="inc">+</button>
             </div>
-            <button class='add btn' (click)="addToCart()">Add to Cart</button>
-            <button class="buy btn">Buy Now</button>
+            <button *ngIf="!inCart" class='add btn' (click)="addToCart()">Add to Cart</button>
+            <button *ngIf="inCart" class='remove btn' (click)="removeFromCart()">Remove from Cart</button>
+            <button class="buy btn" (click)="buyNow()">Buy Now</button>
         </div>
     </div>
     <div class="col-sm-4">

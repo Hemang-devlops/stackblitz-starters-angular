@@ -147,3 +147,22 @@ a:hover{
     background-position-x: 95%;
     background-position-y: center;
 }
+
+.lessQuantity, .addQuantity{
+    border:none;
+}
+
+.itemQuantity{
+    width: 30px;
+}
+
+.close{
+    cursor: pointer;
+}
+
+.emptyCart{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

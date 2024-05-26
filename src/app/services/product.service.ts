@@ -66,17 +66,31 @@ export class ProductService {
   }
 
   localAddToCart(data: Product){
-    let cartData = [];
+    let cartData : Product[] = [];
     let localCart = localStorage.getItem("localCart")
-    console.log(localCart);
     if (!localCart){
       localStorage.setItem('localCart', JSON.stringify([data]));
     } else{
       cartData = JSON.parse(localCart);
-      cartData.push(data);
-      console.log(cartData);
+      const existingItem = cartData.find(item => item.id === data.id);
+      if (existingItem && existingItem.quantity){
+        existingItem.quantity += 1;
+      } else{
+        cartData.push(data);
+      }
+      console.log(cartData, 'new');
       localStorage.setItem('localCart', JSON.stringify(cartData));
     }
     this.cartData.emit(cartData);
+  }
+
+  removeItemFromCart(productId: number){
+    let cartData = localStorage.getItem("localCart");
+    if(cartData){
+      let items: Product[] = JSON.parse(cartData);
+      items = items.filter((item : Product) => productId !== item.id);
+      localStorage.setItem('localCart', JSON.stringify(items));
+      this.cartData.emit(items);
+    }
   }
 }

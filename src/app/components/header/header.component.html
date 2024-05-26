@@ -41,8 +41,8 @@
   <fa-icon *ngIf="mobileNav" class="fa-xl toggle" [icon]="this.cross" (click)="toggleMobileMenu()"></fa-icon>
 </nav>
 <div *ngIf="mobileNav" [ngSwitch]="menuType" class="mobileMenu">
-  <div *ngIf="menuType ==='default'" class="nav-search">
-    <input type="text" placeholder="Search for Products" (keyup)="searchProducts($event)" (blur)="hideSearch()" />
+  <div *ngIf="menuType ==='default'" class="nav-search" (blur)="hideSearch()" >
+    <input type="text" placeholder="Search for Products" (keyup)="searchProducts($event)" />
     <button (click)="searchResults()">Search</button>
     <ul class="search-results-mobile" *ngIf="searchProductData">
       <li class="search-result" *ngFor="let product of searchProductData" (click)="clickSearchResult(product.id)">{{product.title}}</li>

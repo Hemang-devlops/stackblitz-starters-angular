@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../app/data-type';
 
 @Component({
@@ -11,21 +11,40 @@ import { Product } from '../../app/data-type';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute){}
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router){}
 
   productData!: Product;
-  productId: string | null = null;
+  productId !: number;
   isLoading = false;
   currentImage !: string;
   productQuantity : number = 1;
+  inCart = false;
+  cartData !: Product[];
+  localCart = new EventEmitter<Product[]>();
 
-    ngOnInit(): void {
-        this.productId = this.activatedRoute.snapshot.paramMap.get('id');
-        this.productService.getProduct(this.productId).subscribe(result => {
-            this.productData = result;
-            this.currentImage = result.thumbnail;
-        });
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params =>{
+      const id = params.get('id');
+      if (id){
+        this.productId = parseInt(id);
+      }
+    })
+    this.productService.getProduct(this.productId.toString()).subscribe(result => {
+        this.productData = result;
+        this.currentImage = result.thumbnail;
+    });
+
+    const localData = localStorage.getItem('localCart');
+    if (this.productId && localData){
+      this.cartData = JSON.parse(localData);
+      let product = this.cartData.filter((item: Product) => this.productId === item.id);
+      if (product.length){
+        this.inCart = true;
+      } else{
+        this.inCart = false;
+      }
     }
+  }
 
   changeImage(image : string){
     this.currentImage = image;
@@ -44,8 +63,18 @@ export class ProductDetailsComponent {
       if (localStorage.getItem("user")){
         console.log(this.productData)
       } else{
+        this.inCart = true;
         this.productService.localAddToCart(this.productData);
       }
     }
+  }
+
+  removeFromCart(){
+    this.productService.removeItemFromCart(this.productId);
+    this.inCart = false;
+  }
+
+  buyNow(){
+    this.router.navigate([`/placeOrder/${this.productId}`])
   }
 }

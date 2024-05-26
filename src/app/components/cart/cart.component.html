@@ -15,10 +15,16 @@
                         <div class="row">{{item.title}}</div>
                     </div>
                     <div class="col">
-                        <a href="#">-</a><a href="#" class="border">{{item.quantity}}</a><a href="#">+</a>
+                        <button class="lessQuantity"
+                        (click)="changeQuantity(item, 'dec')">-</button>
+                        {{item.quantity}}<button class="addQuantity" (click)="changeQuantity(item, 'inc')">+</button>
                     </div>
-                    <div class="col">{{(item.quantity || 1) * item.price | currency}} &emsp; <span class="close">&#10005;</span></div>
+                    <div class="col">{{(item.quantity || 1) * item.price | currency}} &emsp; <span class="close" (click)="removeItem(item)">&#10005;</span></div>
                 </div>
+            </div>
+            <div class="emptyCart"  *ngIf="!cartData.length">
+                <h2>Empty Cart🛒</h2>
+                <p>Add some items to your Cart.</p>
             </div>
             <!-- <div class="row">
                 <div class="row main align-items-center">
@@ -46,8 +52,9 @@
                 <p>SHIPPING</p>
                 <span class="" *ngIf="!deliveryPrice">Please select delivery type</span>
                 <select [(ngModel)]="deliveryPrice" name="deliveryPrice" (change)="calculateTotal()">
-                    <option class="text-muted" *ngFor="let delivery of deliveryPriceList" [value]="delivery.value">
-                        {{ delivery.name}} {{delivery.value | currency}}
+                    <!-- <option disabled>Select Delivery Type</option> -->
+                    <option class="text-muted" *ngFor="let delivery of deliveryPriceList" [value]="delivery.value" [disabled]="delivery.disabled">
+                        {{ delivery.name}}
                     </option>
                 </select>
                 <p>GIVE CODE</p>
@@ -57,7 +64,7 @@
                 <div class="col">TOTAL PRICE</div>
                 <div class="col text-right">{{totalPrice | currency}}</div>
             </div>
-            <button class="btn">CHECKOUT</button>
+            <button class="btn" [disabled]="!deliveryPrice">CHECKOUT</button>
         </div>
     </div>
 </div>

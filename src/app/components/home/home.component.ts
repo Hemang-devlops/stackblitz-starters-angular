@@ -87,9 +87,13 @@ export class HomeComponent implements OnInit {
 
     addToCart(product: Product) {
         this.productData = product;
+        if (!this.productData.quantity){
+            this.productData.quantity = this.productData.quantity ?? 0;
+            this.productData.quantity += 1;
+        } else{
+            this.productData.quantity = 1
+        }
         if (this.productData) {
-            this.productData.quantity = this.productQuantity;
-            console.log(this.productData)
             if (localStorage.getItem("user")) {
                 console.log(this.productData)
             } else {

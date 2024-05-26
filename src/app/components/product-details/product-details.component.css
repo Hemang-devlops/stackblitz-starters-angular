@@ -77,12 +77,16 @@
   font-size: small;
   height: fit-content;
 }
-.add {
+.add,.remove {
   color: #fff;
   background-color: #ff9f00;
   width: 100px;
   font-size: small;
   height: fit-content;
+}
+
+.remove{
+  width: 150px;
 }
 
 .quantity-grp{
