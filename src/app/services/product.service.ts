@@ -30,29 +30,47 @@ export class ProductService {
     return this.http.put(`https://dummyjson.com/products/${id}`, data)
   }
 
-  popularProduct() {
-    return this.http.get<ResultList>(
-      `https://dummyjson.com/products?limit=4&rating_gt=4&skip=4`
-    )
+  popularProduct(noLimit = false) {
+    const url = `https://dummyjson.com/products?rating_gt=4${noLimit ? '': '&limit=4' }`;
+    return this.http.get<ResultList>(url);
+  }  
+
+  // menProduct(noLimit = false, style = null) {
+  //   const limit = 4
+  //   if (noLimit){
+  //     return this.http.get<ResultList>(
+  //       `https://dummyjson.com/products/category/mens-shirts?limit=${limit}`
+  //     )
+  //   }
+  //   if (!style){
+  //     return this.http.get<ResultList>(
+  //       `https://dummyjson.com/products/category/mens-shirts`
+  //     )
+  //   }
+  //   return this.http.get<ResultList>(
+  //     `https://dummyjson.com/products/category/${style}`
+  //   )
+  // }
+
+  menProduct(noLimit = false, style?: string) {
+    const url = `https://dummyjson.com/products/category/${style || 'mens-shirts'}`;
+    return this.http.get<ResultList>(`${url}${noLimit ? '': '?limit=4' }`);
+  }  
+  
+  womenProduct(noLimit = false, style?: string) {
+    const url = `https://dummyjson.com/products/category/${style || 'womens-dresses'}`;
+    return this.http.get<ResultList>(`${url}${noLimit ? '': '?limit=4' }`);
   }
 
-  menProduct() {
-    return this.http.get<ResultList>(
-      `https://dummyjson.com/products/category/mens-shirts?limit=4`
-    )
+  assesProduct(noLimit = false, style?: string) {
+    const url = `https://dummyjson.com/products/category/${style || 'womens-jewellery'}`;
+    return this.http.get<ResultList>(`${url}${noLimit ? '': '?limit=4' }`);
   }
 
-  womenProduct() {
-    return this.http.get<ResultList>(
-      `https://dummyjson.com/products/category/womens-dresses?limit=4`
-    )
-  }
-
-  accesProduct() {
-    return this.http.get<ResultList>(
-      `https://dummyjson.com/products/category/womens-jewellery?limit=4`
-    )
-  }
+  categoryProduct(noLimit = false, style?: string) {
+    const url = `https://dummyjson.com/products/category/${style}`;
+    return this.http.get<ResultList>(`${url}${noLimit ? '': '?limit=4' }`);
+  }  
 
   searchProduct(query: string | null, limit?: number) {
     if(limit){

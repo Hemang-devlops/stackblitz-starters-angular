@@ -277,7 +277,8 @@ padding: 20px 50px;
 }
 
 .col-sm-3{
-margin: 5px 0;
+  margin: 5px 0;
+  cursor: pointer;
 }
 
 .search-results{

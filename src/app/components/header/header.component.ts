@@ -3,7 +3,7 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../app/data-type';
+import { Product, ResultList } from '../../app/data-type';
 
 @Component({
   selector: 'app-header',
@@ -30,26 +30,30 @@ export class HeaderComponent implements OnInit {
   searchProductData: Product[] = []
   showCategories = false
   categoryList = [
-    'smartphones',
-    'laptops',
-    'fragrances',
-    'skincare',
-    'groceries',
-    'home-decoration',
-    'furniture',
-    'tops',
-    'womens-dresses',
-    'womens-shoes',
-    'mens-shirts',
-    'mens-shoes',
-    'mens-watches',
-    'womens-watches',
-    'womens-bags',
-    'womens-jewellery',
-    'sunglasses',
-    'automotive',
-    'motorcycle',
-    'lighting',
+    "beauty",
+    "fragrances",
+    "furniture",
+    "groceries",
+    "home-decoration",
+    "kitchen-accessories",
+    "laptops",
+    "mens-shirts",
+    "mens-shoes",
+    "mens-watches",
+    "mobile-accessories",
+    "motorcycle",
+    "skin-care",
+    "smartphones",
+    "sports-accessories",
+    "sunglasses",
+    "tablets",
+    "tops",
+    "vehicle",
+    "womens-bags",
+    "womens-dresses",
+    "womens-jewellery",
+    "womens-shoes",
+    "womens-watches"
   ];
   searchQuery : string = '';
   cartItems : number = 0;
@@ -166,5 +170,11 @@ export class HeaderComponent implements OnInit {
         if (this.searchQuery.length > 0) {
             this.router.navigate([`searchResults/${this.searchQuery}`])
         }
+    }
+
+
+    categoryProducts(category : string){
+      this.router.navigate([`/viewAll/${category}`]);
+      this.showCategories = !this.showCategories
     }
 }

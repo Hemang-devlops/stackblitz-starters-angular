@@ -21,6 +21,7 @@ import { ProductDetailsComponent } from '../components/product-details/product-d
 import { UserAuthComponent } from '../components/user-auth/user-auth.component';
 import { SearchResultsComponent } from '../components/search-results/search-results.component';
 import { CartComponent } from '../components/cart/cart.component';
+import { ViewAllComponent } from '../components/view-all/view-all.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { CartComponent } from '../components/cart/cart.component';
     ProductDetailsComponent,
     UserAuthComponent,
     SearchResultsComponent,
-    CartComponent
+    CartComponent,
+    ViewAllComponent
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
 
     accesProduct() {
         this.isLoading = true;
-        this.productService.accesProduct().subscribe((result: ResultList) => {
+        this.productService.assesProduct().subscribe((result: ResultList) => {
             if (result) {
                 this.accesList = result.products;
                 this.isLoading = false;

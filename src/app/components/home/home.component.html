@@ -29,7 +29,7 @@
     <div class="product-list-wrapper">
         <div class="product-header">
             <h1>Trendy Products</h1>
-            <a href="">View All</a>
+            <a routerLink="/viewAll/trendyProducts">View All</a>
         </div>
         <div *ngIf="isLoading" class="loading row">
             <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
@@ -82,7 +82,7 @@
     <div class="product-list-wrapper" id="men">
         <div class="product-header">
             <h1>Men's Fashion</h1>
-            <a href="">View All</a>
+            <a routerLink="/viewAll/menFashion">View All</a>
         </div>
         <div *ngIf="isLoading" class="loading row">
             <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
@@ -136,7 +136,7 @@
     <div class="product-list-wrapper" id="women">
         <div class="product-header">
             <h1>Women's Fashion</h1>
-            <a href="">View All</a>
+            <a routerLink="/viewAll/womenFashion">View All</a>
         </div>
         <div *ngIf="isLoading" class="loading row">
             <div class='col-sm-3' *ngFor="let i of numbers; index as idx">
@@ -190,7 +190,7 @@
     <div class="product-list-wrapper" id="acces">
         <div class="product-header">
             <h1>Fashion Accessories</h1>
-            <a href="">View All</a>
+            <a routerLink="/viewAll/assessories">View All</a>
         </div>
         <div class="row">
             <div class="col-sm-3" *ngFor="let product of accesList">

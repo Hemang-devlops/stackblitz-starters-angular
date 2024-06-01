@@ -33,7 +33,10 @@ export class ProductDetailsComponent {
         this.productData = result;
         this.currentImage = result.thumbnail;
     });
+    this.checkCart();
+  }
 
+  checkCart(){
     const localData = localStorage.getItem('localCart');
     if (this.productId && localData){
       this.cartData = JSON.parse(localData);

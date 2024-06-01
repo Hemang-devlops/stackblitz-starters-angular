@@ -11,6 +11,7 @@ import { ProductDetailsComponent } from '../components/product-details/product-d
 import { UserAuthComponent } from '../components/user-auth/user-auth.component';
 import { SearchResultsComponent } from '../components/search-results/search-results.component';
 import { CartComponent } from '../components/cart/cart.component';
+import { ViewAllComponent } from '../components/view-all/view-all.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'searchResults/:searchQuery',
     component: SearchResultsComponent,
+  },
+  {
+    path: 'viewAll/:category',
+    component: ViewAllComponent,
   },
   { path: 'cart', component: CartComponent },
   { path: '**', component: PagenotfoundComponent },
