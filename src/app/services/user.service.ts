@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { LogIn, SignUp } from '../app/data-type';
+import { LogIn, SignUp } from '../data-type';
 import { Router } from '@angular/router';
 
 @Injectable({

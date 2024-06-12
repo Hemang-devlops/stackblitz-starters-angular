@@ -3,11 +3,10 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../../services/product.service';
-import { Product, ResultList } from '../../app/data-type';
+import { Product, ResultList } from '../../data-type';
 
 @Component({
   selector: 'app-header',
-  // imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

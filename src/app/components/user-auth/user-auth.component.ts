@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LogIn, SignUp } from '../../app/data-type';
+import { LogIn, SignUp } from '../../data-type';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { UserService } from '../../services/user.service';

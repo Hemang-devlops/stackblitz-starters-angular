@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { ProductService } from '../../services/product.service';
-import { Product, ResultList } from '../../app/data-type';
+import { Product, ResultList } from '../../data-type';
 
 @Component({
   selector: 'app-view-all',

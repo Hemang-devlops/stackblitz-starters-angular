@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
-import { Product } from '../../../app/data-type';
+import { Product } from '../../../data-type';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';

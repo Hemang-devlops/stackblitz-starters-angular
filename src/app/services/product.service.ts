@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Product, ResultList } from '../app/data-type';
+import { Product, ResultList } from '../data-type';
 
 @Injectable({
   providedIn: 'root',

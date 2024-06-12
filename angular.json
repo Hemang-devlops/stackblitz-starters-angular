@@ -60,7 +60,10 @@
       "prefix": "app",
       "projectType": "application",
       "root": "",
-      "schematics": {},
+      "schematics": {"@schematics/angular:component": {
+        "style": "scss",
+        "standalone": false
+      }},
       "sourceRoot": "src"
     }
   },

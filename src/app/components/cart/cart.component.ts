@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Product } from '../../app/data-type';
 import { ProductService } from '../../services/product.service';
+import { Product } from '../../data-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -23,7 +24,7 @@ export class CartComponent implements OnInit{
 
 
 
-  constructor (private productService: ProductService){}
+  constructor (private productService: ProductService, private router: Router){}
 
   ngOnInit(): void {
     let localCart = localStorage.getItem("localCart")
@@ -39,12 +40,12 @@ export class CartComponent implements OnInit{
   }
 
   calculateTotal() {
-    const totalQuantity = this.cartData.reduce((prev, curr) => prev + (curr.quantity || 0), 0);
-    const itemTotalPrice = this.cartData.reduce((prev, curr) => prev + (curr.price || 0) * (curr.quantity || 0), 0);
-    this.totalItems = totalQuantity;
-    this.itemTotalPrice = itemTotalPrice;
-    this.totalPrice = itemTotalPrice + parseFloat(this.deliveryPrice.toString());
-    console.log(itemTotalPrice, this.deliveryPrice, typeof this.deliveryPrice);
+    if(this.cartData){
+      this.totalItems = this.cartData.reduce((prev, curr) => prev + (curr.quantity || 0), 0);
+      this.itemTotalPrice = this.cartData.reduce((prev, curr) => prev + (curr.price || 0) * (curr.quantity || 0), 0);
+      this.totalPrice = this.itemTotalPrice + parseFloat(this.deliveryPrice.toString());
+      console.log(this.itemTotalPrice, this.deliveryPrice, typeof this.deliveryPrice);
+    }
   }
   
   changeQuantity(product: Product, change: string) {
@@ -58,6 +59,10 @@ export class CartComponent implements OnInit{
 
   removeItem(product: Product){
     this.productService.removeItemFromCart(product.id);
+  }
+
+  handleCheckout(){
+    this.router.navigate(['checkout/payment-gateway']);
   }
 
 }

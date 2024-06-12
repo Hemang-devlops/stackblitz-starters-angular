@@ -22,7 +22,7 @@
                     <div class="col">{{(item.quantity || 1) * item.price | currency}} &emsp; <span class="close" (click)="removeItem(item)">&#10005;</span></div>
                 </div>
             </div>
-            <div class="emptyCart"  *ngIf="!cartData.length">
+            <div class="emptyCart"  *ngIf="cartData && !cartData.length">
                 <h2>Empty Cart🛒</h2>
                 <p>Add some items to your Cart.</p>
             </div>
@@ -64,7 +64,7 @@
                 <div class="col">TOTAL PRICE</div>
                 <div class="col text-right">{{totalPrice | currency}}</div>
             </div>
-            <button class="btn" [disabled]="!deliveryPrice">CHECKOUT</button>
+            <button class="btn" [disabled]="!deliveryPrice" (click)="handleCheckout()">CHECKOUT</button>
         </div>
     </div>
 </div>
